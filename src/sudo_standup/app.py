@@ -1,8 +1,9 @@
 from math import floor
-from time import sleep
-import tkinter as tk
-from tkinter import ttk
 from threading import Thread
+from time import sleep
+from tkinter import ttk
+import sys
+import tkinter as tk
 
 
 class Counter(Thread):
@@ -59,17 +60,23 @@ def counters(window: tk.Tk, progress: tk.IntVar, work: int, rest: int):
         rest_counter.run()
 
 
-window = tk.Tk()
-window.geometry("640x480")
-window.title("sudo standup")
+def main():
+    _, *args = sys.argv
 
-progress = tk.IntVar()
-progressbar = ttk.Progressbar(variable=progress)
-progressbar.place(x=300, y=300, width=200)
+    if len(args) != 2:
+        print('Usage: sudosu work_time rest_time')
+        sys.exit(1)
 
-work = 2
-rest = 1
+    work, rest = [int(arg) for arg in args]
 
-Thread(target=counters, args=[window, progress, work, rest]).start()
+    window = tk.Tk()
+    window.geometry("640x480")
+    window.title("sudo standup")
 
-window.mainloop()
+    progress = tk.IntVar()
+    progressbar = ttk.Progressbar(variable=progress)
+    progressbar.place(x=300, y=300, width=200)
+
+    Thread(target=counters, args=[window, progress, work, rest]).start()
+
+    window.mainloop()
