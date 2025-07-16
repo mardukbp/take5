@@ -64,14 +64,14 @@ def main():
     _, *args = sys.argv
 
     if len(args) != 2:
-        print('Usage: sudosu work_time rest_time')
+        print('Usage: tab work_time rest_time')
         sys.exit(1)
 
     work, rest = [int(arg) for arg in args]
 
     window = tk.Tk()
     window.geometry("640x480")
-    window.title("sudo standup")
+    window.title("Take a break")
 
     progress = tk.IntVar()
     progressbar = ttk.Progressbar(variable=progress)
