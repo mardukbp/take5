@@ -77,6 +77,8 @@ def main():
     progressbar = ttk.Progressbar(variable=progress)
     progressbar.place(x=300, y=300, width=200)
 
-    Thread(target=counters, args=[window, progress, work, rest]).start()
+    t = Thread(target=counters, args=[window, progress, work, rest])
+    t.daemon = True
+    t.start()
 
     window.mainloop()
