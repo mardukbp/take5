@@ -3,7 +3,7 @@ requires = ["flit_core >=3.11,<4"]
 build-backend = "flit_core.buildapi"
 
 [project]
-name = "take_a_break"
+name = "take5"
 authors = [{name = "Marduk Bolaños"}]
 readme = "README.md"
 license = "Apache-2.0"
@@ -11,7 +11,7 @@ license-files = ["LICENSE"]
 dynamic = ["version", "description"]
 
 [project.urls]
-Home = "https://github.com/mardukbp/take-a-break"
+Home = "https://github.com/mardukbp/take5"
 
 [project.scripts]
-tab = "take_a_break.app:main"
+take5 = "take5.app:main"

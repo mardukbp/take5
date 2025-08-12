@@ -64,7 +64,7 @@ def main():
     _, *args = sys.argv
 
     if len(args) != 2:
-        print('Usage: tab work_time rest_time')
+        print('Usage: take5 work_time rest_time')
         sys.exit(1)
 
     work, rest = [int(arg) for arg in args]
